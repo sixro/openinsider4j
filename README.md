@@ -17,13 +17,20 @@ For example, it can allow you to get all insider trading activities made by CEOs
 
 ## <a name="release"></a>Release
 
-In order to create a SNAPSHOT release use the following command:
+In order to create a _snapshot_ use the following command:
 
 ```
     mvn deploy -Prelease
 ```
 
-On Windows Subsystem Linux, add the following configuration to avoid `gpg` errors:
+In order to create a _release_ use the following command:
+
+```
+    mvn -B release:prepare release:perform
+```
+or the `release.sh` found in the base directory.
+
+WARNING: On Windows Subsystem Linux, add the following configuration to avoid `gpg` errors:
 
 ```
 # FIX error provided by gpg when trying to sign jars.
