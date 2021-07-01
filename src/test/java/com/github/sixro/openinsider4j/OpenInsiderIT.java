@@ -1,5 +1,6 @@
 package com.github.sixro.openinsider4j;
 
+import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class OpenInsiderIT {
 
-    @Test public void not_empty() {
+    @Test public void returns_trade() {
         OpenInsider oi = new OpenInsider();
         InsiderTrades trades = oi.insiderTrades();
 
@@ -26,6 +27,9 @@ public class OpenInsiderIT {
         assertFalse(trade.insiderName().isBlank());
         assertTrue(trade.titles().length > 0);
         assertEquals(InsiderTrade.Type.PURCHASE, trade.type());
+        assertNotNull(trade.price());
+        assertTrue(trade.quantity() > 0);
+        assertNotNull(trade.value());
     }
 
 }

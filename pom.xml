@@ -3,7 +3,7 @@
 
     <groupId>com.github.sixro</groupId>
     <artifactId>openinsider4j</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <version>0.3.0-SNAPSHOT</version>
 
     <name>openinsider4j</name>
     <description>A library to get openinsider.com content</description>
@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.javamoney.moneta</groupId>
+            <artifactId>moneta-core</artifactId>
+            <version>1.4.2</version>
+        </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>

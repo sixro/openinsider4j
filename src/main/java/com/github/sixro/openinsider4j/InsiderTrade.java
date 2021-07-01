@@ -1,5 +1,6 @@
 package com.github.sixro.openinsider4j;
 
+import javax.money.MonetaryAmount;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
  * @author Sixro
  * @since 1.0
  */
+@SuppressWarnings("PMD.ExcessivePublicCount")
 public interface InsiderTrade {
 
     /**
@@ -64,5 +66,26 @@ public interface InsiderTrade {
      * @return the type of trade
      */
     Type type();
+
+    /**
+     * Returns the price at which the insider trader make this operation.
+     *
+     * @return the price
+     */
+    MonetaryAmount price();
+
+    /**
+     * Returns the purchased quantity.
+     *
+     * @return the purchased quantity
+     */
+    int quantity();
+
+    /**
+     * Returns the value of the operation.
+     *
+     * @return the value of the operation
+     */
+    MonetaryAmount value();
 
 }

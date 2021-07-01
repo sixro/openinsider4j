@@ -1,5 +1,6 @@
 package com.github.sixro.openinsider4j;
 
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -37,7 +38,8 @@ public class OpenInsider {
      */
     public InsiderTrades insiderTrades() {
         try {
-            Document doc = Jsoup.connect(URI.toString()).get();
+            Connection connection = Jsoup.connect(URI.toString());
+            Document doc = connection.get();
             Elements elements = doc.select(".tinytable > tbody >tr");
             return new ElementsBasedInsiderTrades(elements);
         } catch (IOException e) {
