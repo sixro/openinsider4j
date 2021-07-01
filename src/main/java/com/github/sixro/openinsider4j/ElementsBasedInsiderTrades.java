@@ -1,4 +1,4 @@
-package com.openinsider4j;
+package com.github.sixro.openinsider4j;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;

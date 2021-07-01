@@ -1,4 +1,4 @@
-package com.openinsider4j;
+package com.github.sixro.openinsider4j;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package com.openinsider4j;
+package com.github.sixro.openinsider4j;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

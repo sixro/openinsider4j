@@ -1,4 +1,4 @@
-package com.openinsider4j;
+package com.github.sixro.openinsider4j;
 
 import org.junit.jupiter.api.Test;
 
@@ -17,12 +17,13 @@ public class OpenInsiderIT {
         Iterator<InsiderTrade> it = trades.iterator();
         assertTrue(it.hasNext());
         InsiderTrade trade = it.next();
-        assertEquals(LocalDateTime.parse("2021-06-28T17:16:18"), trade.filingDateTime());
-        assertEquals(LocalDate.parse("2021-06-24"), trade.tradeDate());
-        assertEquals("ASAN", trade.ticker());
-        assertEquals("Asana, Inc.", trade.companyName());
-        assertEquals("Moskovitz Dustin A.", trade.insiderName());
-        assertArrayEquals(new String[]{ "Pres", "CEO", "Chair", "10%" }, trade.titles());
+        
+        assertTrue(trade.filingDateTime().isAfter(LocalDateTime.parse("2021-06-28T17:16:18")));
+        assertTrue(trade.tradeDate().isAfter(LocalDate.parse("2021-06-24")));
+        assertFalse(trade.ticker().isBlank());
+        assertFalse(trade.companyName().isBlank());
+        assertFalse(trade.insiderName().isBlank());
+        assertTrue(trade.titles().length > 0);
         assertEquals(InsiderTrade.Type.PURCHASE, trade.type());
     }
 
