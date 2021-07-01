@@ -3,7 +3,7 @@
 
     <groupId>com.github.sixro</groupId>
     <artifactId>openinsider4j</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
 
     <name>openinsider4j</name>
     <description>A library to get openinsider.com content</description>
