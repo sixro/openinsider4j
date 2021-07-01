@@ -3,7 +3,7 @@
 
     <groupId>com.github.sixro</groupId>
     <artifactId>openinsider4j</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.1-SNAPSHOT</version>
 
     <name>openinsider4j</name>
     <description>A library to get openinsider.com content</description>
@@ -55,7 +55,7 @@
         <connection>scm:git:ssh://git@github.com/sixro/openinsider4j.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/sixro/openinsider4j.git</developerConnection>
         <url>git@github.com:sixro/openinsider4j.git</url>
-        <tag>v0.3.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <!--
