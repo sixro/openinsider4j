@@ -17,7 +17,8 @@ public class OpenInsiderIT {
         Iterator<InsiderTrade> it = trades.iterator();
         assertTrue(it.hasNext());
         InsiderTrade trade = it.next();
-        
+
+        System.out.println("*** " + trade);
         assertTrue(trade.filingDateTime().isAfter(LocalDateTime.parse("2021-06-28T17:16:18")));
         assertTrue(trade.tradeDate().isAfter(LocalDate.parse("2021-06-24")));
         assertFalse(trade.ticker().isBlank());

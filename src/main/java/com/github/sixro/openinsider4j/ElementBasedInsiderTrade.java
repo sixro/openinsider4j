@@ -20,7 +20,7 @@ class ElementBasedInsiderTrade implements InsiderTrade {
     @Override
     public LocalDateTime filingDateTime() {
         String text = element
-            .select("tr > td:eq(1) > div > a")
+            .select("tr > td:eq(1) > * > a")
             .text();
         return LocalDateTime.parse(text, FORMATTER_FILING_DATETIME);
     }
@@ -36,7 +36,7 @@ class ElementBasedInsiderTrade implements InsiderTrade {
     @Override
     public String ticker() {
         String text = element
-            .select("tr > td:eq(3) > b > a")
+            .select("tr > td:eq(3) > * > a")
             .text();
         return text;
     }
@@ -74,5 +74,16 @@ class ElementBasedInsiderTrade implements InsiderTrade {
             .select("tr > td:eq(7)")
             .text();
         return Type.valueOf(text.split("-")[1].trim().toUpperCase());
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder(ElementBasedInsiderTrade.class.getSimpleName())
+            .append("{")
+            .append("filingDateTime=").append(filingDateTime()).append(", ")
+            .append("tradeDate=").append(tradeDate()).append(", ")
+            .append("ticker=").append(ticker())
+            .append("}")
+            .toString();
     }
 }
