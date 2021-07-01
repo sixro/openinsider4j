@@ -1,6 +1,8 @@
 # openinsider4j
 > A library to get openinsider.com content
 
+![build](https://github.com/sixro/openinsider4j/actions/workflows/maven.yml/badge.svg)
+
 ## Summary
 
   * [Introduction](#intro)
