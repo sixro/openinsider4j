@@ -4,12 +4,12 @@ import org.javamoney.moneta.Money;
 import org.jsoup.nodes.Element;
 
 import javax.money.MonetaryAmount;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
+@SuppressWarnings("PMD.ExcessivePublicCount")
 class ElementBasedInsiderTrade implements InsiderTrade {
 
     private static final DateTimeFormatter FORMATTER_FILING_DATETIME = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -84,7 +84,7 @@ class ElementBasedInsiderTrade implements InsiderTrade {
         String text = element
             .select("tr > td:eq(8)")
             .text();
-        if (! text.startsWith("$"))
+        if (!text.startsWith("$"))
             throw new IllegalStateException("unexpected 'price' not starting with currency symbol: " + text);
 
         text = text.substring(1);
@@ -96,7 +96,7 @@ class ElementBasedInsiderTrade implements InsiderTrade {
         String text = element
             .select("tr > td:eq(9)")
             .text();
-        if (! text.startsWith("+"))
+        if (!text.startsWith("+"))
             throw new IllegalStateException("unexpected 'quantity' not starting with '+' character: " + text);
         text = text.replaceAll("[\\+,]", "");
         return Integer.parseInt(text);
@@ -107,7 +107,7 @@ class ElementBasedInsiderTrade implements InsiderTrade {
         String text = element
             .select("tr > td:eq(12)")
             .text();
-        if (! text.startsWith("+$"))
+        if (!text.startsWith("+$"))
             throw new IllegalStateException("unexpected 'value' not starting with '+$': " + text);
 
         text = text.replaceAll("[\\+\\$,]", "");
