@@ -2,7 +2,7 @@ package com.github.sixro.openinsider4j;
 
 import javax.money.MonetaryAmount;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 /**
  * Represents an insider trade.
@@ -21,9 +21,13 @@ public interface InsiderTrade {
     /**
      * Returns the filing date time.
      *
+     * <p>
+     * Returned {@code ZonedDateTime} is in {@code America/New_York} time zone.
+     * </p>
+     *
      * @return the filing date time
      */
-    LocalDateTime filingDateTime();
+    ZonedDateTime filingDateTime();
 
     /**
      * Returns the trade date.

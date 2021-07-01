@@ -6,13 +6,17 @@ import org.jsoup.nodes.Element;
 import javax.money.MonetaryAmount;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.TimeZone;
 
 @SuppressWarnings("PMD.ExcessivePublicCount")
 class ElementBasedInsiderTrade implements InsiderTrade {
 
     private static final DateTimeFormatter FORMATTER_FILING_DATETIME = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final ZoneId TZ_USA = TimeZone.getTimeZone("America/New_York").toZoneId();
 
     private final Element element;
 
@@ -21,11 +25,12 @@ class ElementBasedInsiderTrade implements InsiderTrade {
     }
 
     @Override
-    public LocalDateTime filingDateTime() {
+    public ZonedDateTime filingDateTime() {
         String text = element
             .select("tr > td:eq(1) > * > a")
             .text();
-        return LocalDateTime.parse(text, FORMATTER_FILING_DATETIME);
+        LocalDateTime dt = LocalDateTime.parse(text, FORMATTER_FILING_DATETIME);
+        return dt.atZone(TZ_USA);
     }
 
     @Override
