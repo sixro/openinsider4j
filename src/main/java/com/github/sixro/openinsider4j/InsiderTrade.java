@@ -1,7 +1,10 @@
 package com.github.sixro.openinsider4j;
 
+import javax.money.MonetaryAmount;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 /**
  * Represents an insider trade.
@@ -64,5 +67,11 @@ public interface InsiderTrade {
      * @return the type of trade
      */
     Type type();
+
+    MonetaryAmount price();
+
+    int quantity();
+
+    MonetaryAmount value();
 
 }

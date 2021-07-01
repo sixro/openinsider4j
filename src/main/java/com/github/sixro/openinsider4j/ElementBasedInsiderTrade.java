@@ -1,7 +1,10 @@
 package com.github.sixro.openinsider4j;
 
+import org.javamoney.moneta.Money;
 import org.jsoup.nodes.Element;
 
+import javax.money.MonetaryAmount;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -77,12 +80,54 @@ class ElementBasedInsiderTrade implements InsiderTrade {
     }
 
     @Override
+    public MonetaryAmount price() {
+        String text = element
+            .select("tr > td:eq(8)")
+            .text();
+        if (! text.startsWith("$"))
+            throw new IllegalStateException("unexpected 'price' not starting with currency symbol: " + text);
+
+        text = text.substring(1);
+        return Money.parse(text + " USD");
+    }
+
+    @Override
+    public int quantity() {
+        String text = element
+            .select("tr > td:eq(9)")
+            .text();
+        if (! text.startsWith("+"))
+            throw new IllegalStateException("unexpected 'quantity' not starting with '+' character: " + text);
+        text = text.replaceAll("[\\+,]", "");
+        return Integer.parseInt(text);
+    }
+
+    @Override
+    public MonetaryAmount value() {
+        String text = element
+            .select("tr > td:eq(12)")
+            .text();
+        if (! text.startsWith("+$"))
+            throw new IllegalStateException("unexpected 'value' not starting with '+$': " + text);
+
+        text = text.replaceAll("[\\+\\$,]", "");
+        return Money.parse(text + " USD");
+    }
+
+    @Override
     public String toString() {
         return new StringBuilder(ElementBasedInsiderTrade.class.getSimpleName())
             .append("{")
             .append("filingDateTime=").append(filingDateTime()).append(", ")
             .append("tradeDate=").append(tradeDate()).append(", ")
-            .append("ticker=").append(ticker())
+            .append("ticker=").append(ticker()).append(", ")
+            .append("companyName=\"").append(companyName()).append("\", ")
+            .append("insiderName=\"").append(insiderName()).append("\", ")
+            .append("titles=").append(Arrays.toString(titles())).append(", ")
+            .append("type=").append(type()).append(", ")
+            .append("price=").append(price()).append(", ")
+            .append("quantity=").append(quantity()).append(", ")
+            .append("value=").append(value())
             .append("}")
             .toString();
     }
