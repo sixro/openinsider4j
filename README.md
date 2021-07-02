@@ -16,6 +16,11 @@
 This is a Java library that allows to read data found on [openinsider.com](http://openinsider.com).  
 For example, it can allow you to get all insider trading activities made by CEOs of companies.
 
+```
+DISCLAIMER: this library has nothing to do with openinsider.com
+            I developed it for personal use.
+            Use at your own risk.
+```
 
 ## <a name="how-to-use"></a>How to use
 
