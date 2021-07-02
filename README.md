@@ -27,11 +27,11 @@ DISCLAIMER: this library has nothing to do with openinsider.com
 Include as a dependency:
 
 ```
-	<dependency>
-		<groupId>com.github.sixro</groupId>
-		<artifactId>openinsider4j</artifactId>
-		<version>0.4.2</version>
-	</dependency>
+<dependency>
+	<groupId>com.github.sixro</groupId>
+	<artifactId>openinsider4j</artifactId>
+	<version>0.4.2</version>
+</dependency>
 ```
 (check Maven Central for the most recent version).
 
@@ -45,13 +45,13 @@ The you can call the `OpenInsider.insiderTrades`.
 In order to create a _snapshot_ use the following command:
 
 ```
-    mvn deploy -Prelease
+mvn deploy -Prelease
 ```
 
 In order to create a _release_ use the following command:
 
 ```
-    mvn -B release:prepare release:perform
+mvn -B release:prepare release:perform
 ```
 or the `release.sh` found in the base directory.
 
