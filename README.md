@@ -6,7 +6,9 @@
 ## Summary
 
   * [Introduction](#intro)
-  * [Release](#release)
+  * [How to use](#how-to-use)
+  * [Development](#development)
+    * [How to release](#release)
 
 
 ## <a name="intro"></a>Introduction
@@ -15,7 +17,25 @@ This is a Java library that allows to read data found on [openinsider.com](http:
 For example, it can allow you to get all insider trading activities made by CEOs of companies.
 
 
-## <a name="release"></a>Release
+## <a name="how-to-use"></a>How to use
+
+Include as a dependency:
+
+```
+	<dependency>
+		<groupId>com.github.sixro</groupId>
+		<artifactId>openinsider4j</artifactId>
+		<version>0.4.2</version>
+	</dependency>
+```
+(check Maven Central for the most recent version).
+
+The you can call the `OpenInsider.insiderTrades`.
+
+
+## <a name="development"></a>Development
+
+### <a name="release"></a>How to release
 
 In order to create a _snapshot_ use the following command:
 
