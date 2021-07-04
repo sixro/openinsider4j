@@ -2,6 +2,7 @@
 > A library to get openinsider.com content
 
 ![build](https://github.com/sixro/openinsider4j/actions/workflows/maven.yml/badge.svg)
+[![javadoc](https://javadoc.io/badge2/com.github.sixro/openinsider4j/javadoc.svg)](https://javadoc.io/doc/com.github.sixro/openinsider4j)
 
 ## Summary
 
