@@ -32,7 +32,7 @@ class ElementsBasedInsiderTrades implements InsiderTrades {
         @Override
         public InsiderTrade next() {
             Element el = it.next();
-            return new ElementBasedInsiderTrade(el);
+            return new ElementBasedInsiderTrade(el, null);
         }
 
     }

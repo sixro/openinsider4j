@@ -1,5 +1,7 @@
 package com.github.sixro.openinsider4j;
 
+import com.github.sixro.commons.finance.Ticker;
+
 import javax.money.MonetaryAmount;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -41,7 +43,7 @@ public interface InsiderTrade {
      *
      * @return the ticker
      */
-    String ticker();
+    Ticker ticker();
 
     /**
      * Returns the company name.

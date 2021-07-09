@@ -1,5 +1,6 @@
 package com.github.sixro.openinsider4j;
 
+import com.github.sixro.commons.finance.Ticker;
 import org.javamoney.moneta.Money;
 import org.jsoup.nodes.Element;
 
@@ -19,9 +20,11 @@ class ElementBasedInsiderTrade implements InsiderTrade {
     private static final ZoneId TZ_USA = TimeZone.getTimeZone("America/New_York").toZoneId();
 
     private final Element element;
+    private final TickerResolver tickerResolver;
 
-    ElementBasedInsiderTrade(Element element) {
+    public ElementBasedInsiderTrade(Element element, TickerResolver tickerResolver) {
         this.element = element;
+        this.tickerResolver = tickerResolver;
     }
 
     @Override
@@ -42,11 +45,12 @@ class ElementBasedInsiderTrade implements InsiderTrade {
     }
 
     @Override
-    public String ticker() {
+    public Ticker ticker() {
         String text = element
             .select("tr > td:eq(3) > * > a")
             .text();
-        return text;
+        Ticker ticker = tickerResolver.resolve(text);
+        return ticker;
     }
 
     @Override
