@@ -22,7 +22,7 @@ class ElementBasedInsiderTrade implements InsiderTrade {
     private final Element element;
     private final TickerResolver tickerResolver;
 
-    public ElementBasedInsiderTrade(Element element, TickerResolver tickerResolver) {
+    ElementBasedInsiderTrade(Element element, TickerResolver tickerResolver) {
         this.element = element;
         this.tickerResolver = tickerResolver;
     }
