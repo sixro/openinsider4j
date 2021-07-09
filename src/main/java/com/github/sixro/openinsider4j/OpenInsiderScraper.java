@@ -12,7 +12,7 @@ import java.net.URISyntaxException;
 /**
  * Represents an open insider using scraping tecnique.
  */
-public class OpenInsiderScraper implements OpenInsider {
+public final class OpenInsiderScraper implements OpenInsider {
 
     private static final URI URI;
     static {
