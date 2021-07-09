@@ -31,6 +31,26 @@ public class OpenInsider {
         }
     }
 
+    private final TickerResolver tickerResolver;
+
+    /**
+     * Creates an open insider using a ticker resolver based on Google Finance.
+     *
+     * @see GoogleFinanceTickerResolver
+     */
+    public OpenInsider() {
+        this(new GoogleFinanceTickerResolver());
+    }
+
+    /**
+     * Creates an open insider using the specified ticker resolver.
+     *
+     * @param tickerResolver the ticker resolver
+     */
+    public OpenInsider(TickerResolver tickerResolver) {
+        this.tickerResolver = tickerResolver;
+    }
+
     /**
      * Returns insider trades show at the moment.
      *
@@ -41,7 +61,7 @@ public class OpenInsider {
             Connection connection = Jsoup.connect(URI.toString());
             Document doc = connection.get();
             Elements elements = doc.select(".tinytable > tbody >tr");
-            return new ElementsBasedInsiderTrades(elements);
+            return new ElementsBasedInsiderTrades(elements, tickerResolver);
         } catch (IOException e) {
             throw new RuntimeException("Unable to parse URI " + URI, e);
         }

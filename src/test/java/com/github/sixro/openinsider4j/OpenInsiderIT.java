@@ -27,7 +27,7 @@ public class OpenInsiderIT {
         System.out.println("*** " + trade);
         assertTrue(trade.filingDateTime().isAfter(LocalDateTime.parse("2021-06-28T17:16:18").atZone(TZ_USA)));
         assertTrue(trade.tradeDate().isAfter(LocalDate.parse("2021-06-24")));
-        assertFalse(trade.ticker().isBlank());
+        assertNotNull(trade.ticker());
         assertFalse(trade.companyName().isBlank());
         assertFalse(trade.insiderName().isBlank());
         assertTrue(trade.titles().length > 0);
