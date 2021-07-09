@@ -1,6 +1,5 @@
 package com.github.sixro.openinsider4j;
 
-import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -11,13 +10,13 @@ import java.util.TimeZone;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OpenInsiderIT {
+public class OpenInsiderScraperIT {
 
     public static final ZoneId TZ_USA = TimeZone.getTimeZone("America/New_York")
         .toZoneId();
 
     @Test public void returns_trade() {
-        OpenInsider oi = new OpenInsider();
+        OpenInsiderScraper oi = new OpenInsiderScraper();
         InsiderTrades trades = oi.insiderTrades();
 
         Iterator<InsiderTrade> it = trades.iterator();
